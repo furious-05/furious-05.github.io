@@ -279,11 +279,11 @@ python3 heapdump_analyzer.py -f heapdump.hprof --all
 ```
 
 
-<img src="/assets/HTB/Eureka/image5.png" alt="Error Loading image"/>
+<img src="assets/HTB/Eureka/image5.png" alt="Error Loading image"/>
 
 **oscar190**:**0sc@r190_S0l!dP@sswd**
 
-<img src="/assets/HTB/Eureka/image6.png" alt="Error Loading image"/>
+<img src="assets/HTB/Eureka/image6.png" alt="Error Loading image"/>
 
 ## Initial Access
 
@@ -458,7 +458,7 @@ We were not able to crack the password.
 ```
 http://furni.htb:8761
 ```
-<img src="/assets/HTB/Eureka/image7.png" alt="Error Loading image"/>
+<img src="assets/HTB/Eureka/image7.png" alt="Error Loading image"/>
 
 Found a credential in the JSON report and used it to log in.
 
