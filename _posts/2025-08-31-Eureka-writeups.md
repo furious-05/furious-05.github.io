@@ -220,7 +220,7 @@ Task Completed
 http://furni.htb/actuator/env
 ```
 
-<img src="assets/HTB/Eureka/image3.png" alt="Error Loading image"/>
+<img src="/assets/HTB/Eureka/image3.png" alt="Error Loading image"/>
 
 From here we download a heapdump file
 
