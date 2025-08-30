@@ -220,7 +220,7 @@ Task Completed
 http://furni.htb/actuator/env
 ```
 
-<img src="Imgs/image3.png" alt="Error Loading image"/>
+<img src="assets/HTB/Eureka/image3.png" alt="Error Loading image"/>
 
 From here we download a heapdump file
 
@@ -492,7 +492,7 @@ cat heapdump_forensic_report_20250428_074922.json
 **EurekaSrvr:0scarPWDisTheB3st**
 
 
-<img src="Imgs/image8.png" alt="Error Loading image"/>
+<img src="assets/HTB/Eureka/image8.png" alt="Error Loading image"/>
 
 
 Forwarded port `8761` to access it locally.
