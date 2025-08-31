@@ -18,9 +18,9 @@ image:
   </tr>
   <tr>
     <td>Eureka</td>
-    <td>Easy</td>
-    <td>Linux/Windows</td>
-    <td>Jul 2025</td>
+    <td>Hard</td>
+    <td>Linux</td>
+    <td>27 Apr 2025</td>
     <td><img src="assets/HTB/Eureka/image1.png" alt="Logo" width="80"></td>
   </tr>
 </table>
