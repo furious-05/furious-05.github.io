@@ -3,9 +3,9 @@ title: Eureka
 date: 2025-07-31 
 categories: [HTB Walkthrough]
 tags: Linux Heapdump  ScriptPath LogonScript
-img_path: assets/HTB/Eureka/image1.png
+img_path: assets/HTB/Eureka/image.png
 image:
-  path: assets/HTB/Eureka/image1.png
+  path: assets/HTB/Eureka/image.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">
