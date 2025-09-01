@@ -2,7 +2,7 @@
 title: Eureka
 date: 2025-07-31 
 categories: [HTB Walkthrough]
-tags: Linux Heapdump  ScriptPath LogonScript
+tags: Linux Heapdump  CommandInjection SSH Pspy Web
 img_path: assets/HTB/Eureka/image.png
 image:
   path: assets/HTB/Eureka/image.png

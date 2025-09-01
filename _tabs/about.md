@@ -56,5 +56,5 @@ Also… I love ☕ coffee!
 ## 👥 Team
 
 - 🤝 Member of **Team MNM** — I enjoy working with these guys; their support and guidance have helped me learn and grow in cybersecurity.  
-- **Team Members:** n0tabdu11ah, V3c70r, hexfau1t, Maver1ck
+- **Team Members:** Hwat Sauce, V3c70r, hexfau1t, Maver1ck
 
