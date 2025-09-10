@@ -475,7 +475,7 @@ if __name__ == "__main__":
 
 ---
 
-## Script Logic
+### Script Logic
 
 1. **Known prefix:** The script starts with `FLAG = "BHFlagY{"`.
 2. **Position calculation:** For each iteration, `pos = 1012 + len(FLAG)` points to the next character in the database file.
