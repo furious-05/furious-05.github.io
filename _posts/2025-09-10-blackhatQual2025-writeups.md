@@ -198,7 +198,7 @@ docker-compose up
 
 ### Vulnerable Components
 
-### report.php
+**report.php**
 ```php
 $url = $_REQUEST['url'] ?? null;
 if (isset($url) && str_starts_with($url, URL_PREFIX)) {
@@ -210,7 +210,7 @@ if (isset($url) && str_starts_with($url, URL_PREFIX)) {
 * Restricts requests to `http://localhost:5000/index.php`.
 * Simply shells out to `bot.py` with user-controlled input.
 
-### index.php
+**index.php**
 
 ```php
 @print($_GET["html"] ?? show_source(__FILE__));
@@ -219,7 +219,7 @@ if (isset($url) && str_starts_with($url, URL_PREFIX)) {
 * Reflects arbitrary HTML provided via the `html` parameter.
 * No sanitization → we can inject `<meta http-equiv="refresh">` or other redirect tricks.
 
-### bot.py
+**bot.py**
 
 ```python
 await context.add_cookies([
@@ -232,7 +232,7 @@ await page.goto(url)
 * Visits attacker-controlled pages under `http://localhost:5000/index.php?...` with the admin token cookie set.
 * Effectively acts as an XSS bot with high privileges.
 
-### admin.php
+**admin.php**
 
 ```php
 $txs = @yaml_parse_url($url);
@@ -246,7 +246,7 @@ foreach ($currency_inventory as $cur => $qty) {
 * Returns `DYN_FLAG` for currency `FL` if manipulated correctly.
 
 
-## Exploit Flow
+### Exploit Flow
 
 Host exploit HTML (`exploit.html`) somewhere publicly accessible. Locally, you can use a Python server:
 
@@ -420,7 +420,7 @@ We use a **time-based blind SQL injection** approach:
 
 ---
 
-## Exploit Script
+### Exploit Script
 
 ```python
 #!/usr/bin/env python3
