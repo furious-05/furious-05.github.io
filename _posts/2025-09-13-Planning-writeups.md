@@ -333,7 +333,7 @@ Last login: Thu Sep 11 14:34:19 2025 from 10.10.14.97
 enzo@planning:~$ ls
 user.txt
 enzo@planning:~$ cat user.txt 
-e2b59ca14934de1faf7faf2e0f74758d
+**********34de1faf7faf2e0f74758d
 enzo@planning:~$
 ```
 
@@ -464,5 +464,5 @@ drwxr-xr-x  2 root root 4096 Apr  3 12:54 scripts
 drwx------  2 root root 4096 Feb 28  2025 .ssh
 root@planning:~# cat root.txt
 cat root.txt
-968ec0c01f5264aa6fc59a6adb03ce70
+************64aa6fc59a6adb03ce70
 ```

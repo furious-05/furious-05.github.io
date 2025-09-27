@@ -396,7 +396,7 @@ ls
 backup  user.txt
 www-data@environment:/home/hish$ cat user.txt
 cat user.txt
-30a72cf4a5ea410ba32e962491cfe368
+**************ba32e962491cfe368
 www-data@environment:/home/hish$ 
 
 ```

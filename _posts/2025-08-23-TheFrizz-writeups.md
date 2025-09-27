@@ -361,7 +361,7 @@ d----            5/8/2021  1:15 AM                Saved Games
 d-r--            5/8/2021  1:15 AM                Videos
 
 PS C:\Users\f.frizzle> cat Desktop/user.txt
-2bd3e806b28b8a6c3bdc231e2a56d4f4
+***********b8a6c3bdc231e2a56d4f4
 PS C:\Users\f.frizzle>
 ```
 
@@ -667,7 +667,7 @@ frizz\m.schoolbus
 
 C:\Windows\system32>type C:\Users\Administrator\Desktop\root.txt
 type C:\Users\Administrator\Desktop\root.txt
-409836d1303448e88d035ea6a645765a
+***********448e88d035ea6a645765a
 
 C:\Windows\system32>
 ```

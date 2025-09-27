@@ -860,7 +860,7 @@ bash-5.0# cd /root
 bash-5.0# ls
 log_analysis.txt  root.txt  snap
 bash-5.0# cat root.txt 
-8fcc51e28a0b8abe3f19b33b6814a7b6
+*********a0b8abe3f19b33b6814a7b6
 bash-5.0# 
 
 ```
