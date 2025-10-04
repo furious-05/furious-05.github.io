@@ -720,7 +720,7 @@ Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplay
                                         
 Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\steph.cooper_adm\Desktop> type ..\..\Administrator\Desktop\root.txt
-dabcf54bba7de2b1d31b132d40938f62
+***********de2b1d31b132d40938f62
 *Evil-WinRM* PS C:\Users\steph.cooper_adm\Desktop> 
 
 ```
