@@ -1,6 +1,6 @@
 ---
 title: Puppy
-date: 2025-09-25  
+date: 2025-09-27  
 categories: [HTB Walkthrough]
 tags: Window ADCS CVE NTLM DACLAbuse
 img_path: assets/HTB/Puppy/image.png
