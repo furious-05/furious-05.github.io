@@ -2,7 +2,7 @@
 title: Certificate
 date: 2025-09-27  
 categories: [HTB Walkthrough]
-tags: Window ADCS CVE NTLM DACLAbuse
+tags: Windows Web xampp MsSql Krb5Roast ADCS GoldenTicket
 img_path: assets/HTB/Certificate/image1.png
 image:
   path: assets/HTB/Certificate/image1.png

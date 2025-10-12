@@ -2,7 +2,7 @@
 title: Puppy
 date: 2025-09-27  
 categories: [HTB Walkthrough]
-tags: Window ADCS CVE NTLM DACLAbuse
+tags: Windows SMB DPAPI DACLAbuse DCSync
 img_path: assets/HTB/Puppy/image.png
 image:
   path: assets/HTB/Puppy/image.png
