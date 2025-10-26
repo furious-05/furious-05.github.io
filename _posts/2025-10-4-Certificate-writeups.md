@@ -3,7 +3,7 @@ title: Certificate
 date: 2025-10-4
 categories: [HTB Walkthrough]
 tags: Windows Web xampp MsSql Krb5Roast ADCS GoldenTicket
-img_path: assets/HTB/Certificate/image1.png
+img_path: /assets/HTB/Certificate/image1.png
 image:
   path: /assets/HTB/Certificate/image1.png
 ---
@@ -21,7 +21,7 @@ image:
     <td>Hard</td>
     <td>Windows</td>
     <td>01 Jun 2025</td>
-    <td><img src="assets/HTB/Certificate/logo.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/Certificate/logo.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
