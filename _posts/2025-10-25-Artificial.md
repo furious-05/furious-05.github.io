@@ -201,11 +201,11 @@ Dockerfile  exploit.h5  exploit.py  requirements.txt
 
 After generating the malicious `.h5` file, we proceed to upload it through the application’s interface:
 
-![Uploading Model](assets/HTB/Artificial/image4.png)
+![Uploading Model](/assets/HTB/Artificial/image4.png)
 
 Once the model is uploaded, we trigger the exploit by clicking on **"View Prediction"**:
 
-![Triggering the Exploit](assets/HTB/Artificial/image5.png)
+![Triggering the Exploit](/assets/HTB/Artificial/image5.png)
 
 >  Before clicking **View Prediction**, ensure that a listener is set up on your machine to catch the reverse shell:
 
