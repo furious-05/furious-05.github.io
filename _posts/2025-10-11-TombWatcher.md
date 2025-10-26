@@ -3,9 +3,9 @@ title: TombWatcher
 date: 2025-10-11
 categories: [HTB Walkthrough]
 tags: Windows SMB Kerberoast ADCS CVE TombStoned DACLAbuse
-img_path: assets/HTB/TombWatcher/image1.png
+img_path: /assets/HTB/TombWatcher/image1.png
 image:
-  path: assets/HTB/TombWatcher/image1.png
+  path: /assets/HTB/TombWatcher/image1.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">
@@ -21,7 +21,7 @@ image:
     <td>Medium</td>
     <td>Windows</td>
     <td>08 Jun 2025</td>
-    <td><img src="assets/HTB/TombWatcher/logo.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/TombWatcher/logo.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
@@ -404,7 +404,7 @@ bloodhound-python -dc dc01.tombwatcher.htb -u 'henry' -p 'H3nry_987TGV!' -d tomb
 The current account can set an SPN on a target user and then request a service ticket for that SPN — a classic targeted **Kerberoasting** workflow to obtain offline crackable service tickets.
 
 
-<img src="assets/HTB/TombWatcher/image2.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/TombWatcher/image2.png" alt="Error Loading Image"/>
 
 1. Sync the time with the DC (Kerberos is time-sensitive):
 

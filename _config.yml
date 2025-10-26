@@ -225,4 +225,4 @@ jekyll-archives:
     category: /categories/:name/
 
 include:
-  - /assets
+  - assets
