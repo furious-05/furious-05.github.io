@@ -5,7 +5,7 @@ categories: [HTB Walkthrough]
 tags: Windows Web xampp MsSql Krb5Roast ADCS GoldenTicket
 img_path: assets/HTB/Certificate/image1.png
 image:
-  path: assets/HTB/Certificate/image1.png
+  path: /assets/HTB/Certificate/image1.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">

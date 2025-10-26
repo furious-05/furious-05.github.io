@@ -470,7 +470,7 @@ Session completed.
 
 Now, looking at Alfred's outbound, we see he can add **himself** to the INFRASTRUCTURE group — so add him to that group.
 
-<img src="assets/HTB/TombWatcher/image3.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/TombWatcher/image3.png" alt="Error Loading Image"/>
 
 
 ```
@@ -484,7 +484,7 @@ Now, looking at Alfred's outbound, we see he can add **himself** to the INFRASTR
 Here it's clear that a member of the `INFRASTRUCTURE` group can read the gMSA for `ansible_dev`. **Alfred** is now in `INFRASTRUCTURE`, so read the gMSA with:
 
 
-<img src="assets/HTB/TombWatcher/image4.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/TombWatcher/image4.png" alt="Error Loading Image"/>
 
 
 ```
@@ -501,7 +501,7 @@ LDAPS       10.10.11.72     636    DC01             Account: ansible_dev$       
 
 Here we can see `ansible_dev$` has **ForceChangePassword** on sam, so change `sam's` password using the NT hash of user ansible.
 
-<img src="assets/HTB/TombWatcher/image5.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/TombWatcher/image5.png" alt="Error Loading Image"/>
 
 ```
 ┌──(kali㉿kali)-[~/HTB-machine/tombwatcher/writeup]
@@ -513,7 +513,7 @@ Here we can see `ansible_dev$` has **ForceChangePassword** on sam, so change `sa
 
 Now, looking at SAM's outbound, we see SAM has **WriteOwner** on `JOHN`. We'll do two things: first become the owner of `JOHN`, then give SAM full control so we can read or change JOHN's password.
 
-<img src="assets/HTB/TombWatcher/image6.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/TombWatcher/image6.png" alt="Error Loading Image"/>
 
 ```
 # become owner
@@ -567,7 +567,7 @@ Info: Establishing connection to remote endpoint
 
 Here we can see the user `john` has **GENERIC_ALL** on the `OU=ADCS`.
 
-<img src="assets/HTB/TombWatcher/image7.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/TombWatcher/image7.png" alt="Error Loading Image"/>
 
 Now we Run `bloodyAD` as **john** against the domain controller to fetch the `OU=ADCS` object and resolve its security descriptor, showing ACLs and ownership info.
 
