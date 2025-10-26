@@ -3,9 +3,9 @@ title: Puppy
 date: 2025-09-27  
 categories: [HTB Walkthrough]
 tags: Windows SMB DPAPI DACLAbuse DCSync
-img_path: assets/HTB/Puppy/image.png
+img_path: /assets/HTB/Puppy/image.png
 image:
-  path: assets/HTB/Puppy/image.png
+  path: /assets/HTB/Puppy/image.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">
@@ -21,7 +21,7 @@ image:
     <td>Medium</td>
     <td>Windows</td>
     <td>18 May 2025</td>
-    <td><img src="assets/HTB/Puppy/logo.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/Puppy/logo.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
@@ -308,7 +308,7 @@ We find that the user `levi.james` is a member of the `HR` group, which has **Ge
 
 
 
-<img src="assets/HTB/Puppy/image1.png" alt="Error loading">
+<img src="/assets/HTB/Puppy/image1.png" alt="Error loading">
 
 Attempting to access the `DEV` share confirms that access is denied for `levi.james`:
 
@@ -428,7 +428,7 @@ keepassxc recovery.kdbx
 
 Here we have passwords for different users:
 
-<img src="assets/HTB/Puppy/image2.png" alt="Error loading">
+<img src="/assets/HTB/Puppy/image2.png" alt="Error loading">
 
 These are all the credentials:
 
@@ -448,7 +448,7 @@ SAMUEL BLAKE: ILY2025!
 
 If we look at Ant Edwards' delegated object control, we can see he is a member of the "Senior Dev" group, and that group has `GenericAll` access on the adam.silver user.
 
-<img src="assets/HTB/Puppy/image3.png" alt="Error loading">
+<img src="/assets/HTB/Puppy/image3.png" alt="Error loading">
 
 Now, using BloodyAD, we change the password of this user:
 
@@ -730,7 +730,7 @@ Info: Establishing connection to remote endpoint
 If we check, we can see that the user `steph.cooper_adm` has `DCSync` rights on the Domain Controller, so we dump all hashes.
 
 
-<img src="assets/HTB/Puppy/image4.png" alt="Error loading">
+<img src="/assets/HTB/Puppy/image4.png" alt="Error loading">
 
 ```
 impacket-secretsdump 'PUPPY.HTB/steph.cooper_adm:FivethChipOnItsWay2025!'@$IP 

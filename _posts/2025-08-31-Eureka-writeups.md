@@ -3,9 +3,9 @@ title: Eureka
 date: 2025-07-31 
 categories: [HTB Walkthrough]
 tags: Linux Heapdump  CommandInjection SSH Pspy Web
-img_path: assets/HTB/Eureka/image.png
+img_path: /assets/HTB/Eureka/image.png
 image:
-  path: assets/HTB/Eureka/image.png
+  path: /assets/HTB/Eureka/image.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">
@@ -21,7 +21,7 @@ image:
     <td>Hard</td>
     <td>Linux</td>
     <td>27 Apr 2025</td>
-    <td><img src="assets/HTB/Eureka/image1.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/Eureka/image1.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
@@ -170,7 +170,7 @@ Updated the `/etc/hosts` file.
 http://furni.htb
 ```
 
-<img src="assets/HTB/Eureka/image2.png" alt="Error Loading image"/>
+<img src="/assets/HTB/Eureka/image2.png" alt="Error Loading image"/>
 
 
 ## Enumeration
@@ -242,7 +242,7 @@ Task Completed
 http://furni.htb/actuator/env
 ```
 
-<img src="assets/HTB/Eureka/image3.png" alt="Error Loading image"/>
+<img src="/assets/HTB/Eureka/image3.png" alt="Error Loading image"/>
 
 From here we download a heapdump file
 
@@ -302,11 +302,11 @@ python3 heapdump_analyzer.py -f heapdump.hprof --all
 
 After analyzing the heap dump file and identifying patterns, we extracted credentials for the user `oscat192`.
 
-<img src="assets/HTB/Eureka/image5.png" alt="Error Loading image"/>
+<img src="/assets/HTB/Eureka/image5.png" alt="Error Loading image"/>
 
 **oscar190**:**0sc@r190_S0l!dP@sswd**
 
-<img src="assets/HTB/Eureka/image6.png" alt="Error Loading image"/>
+<img src="/assets/HTB/Eureka/image6.png" alt="Error Loading image"/>
 
 ## Initial Access
 
@@ -487,7 +487,7 @@ We were unable to crack the passwords from the database. However, we already obt
 ```
 http://furni.htb:8761
 ```
-<img src="assets/HTB/Eureka/image7.png" alt="Error Loading image"/>
+<img src="/assets/HTB/Eureka/image7.png" alt="Error Loading image"/>
 
 Found a credential in the JSON report and used it to log in.
 
@@ -521,7 +521,7 @@ cat heapdump_forensic_report_20250428_074922.json
 **EurekaSrvr:0scarPWDisTheB3st**
 
 
-<img src="assets/HTB/Eureka/image8.png" alt="Error Loading image"/>
+<img src="/assets/HTB/Eureka/image8.png" alt="Error Loading image"/>
 
 
 Forwarded port `8761` to access it locally.

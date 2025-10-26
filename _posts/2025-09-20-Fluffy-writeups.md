@@ -3,9 +3,9 @@ title: Fluffy
 date: 2025-09-20  
 categories: [HTB Walkthrough]
 tags: Window ADCS CVE NTLM DACLAbuse
-img_path: assets/HTB/Fluffy/image.png
+img_path: /assets/HTB/Fluffy/image.png
 image:
-  path: assets/HTB/Fluffy/image.png
+  path: /assets/HTB/Fluffy/image.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">
@@ -21,7 +21,7 @@ image:
     <td>Easy</td>
     <td>Window</td>
     <td>25 May 2025</td>
-    <td><img src="assets/HTB/Fluffy/logo.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/Fluffy/logo.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
@@ -399,7 +399,7 @@ smb: \>
 
 ```
 
-<img src="assets/HTB/Fluffy/image1.png" alt="Error Loading Image" />
+<img src="/assets/HTB/Fluffy/image1.png" alt="Error Loading Image" />
 
 ## [CVE-2025-24071 ](https://github.com/ThemeHackers/CVE-2025-24071) — NTLM Relay via SMB Authentication Leak
 
@@ -556,7 +556,7 @@ Upon reviewing group memberships and access control, we observed the following:
 - The user `p.agila` is a member of the **SERVICE ACCOUNT MANAGER** group.
 - This group has **GenericAll** permissions over the **SERVICE ACCOUNTS** group.
 
-<img src="assets/HTB/Fluffy/image3.png" alt="Error Loading Image" />
+<img src="/assets/HTB/Fluffy/image3.png" alt="Error Loading Image" />
 
 Furthermore, the **SERVICE Accounts** group has **GenericWrite** privileges over the following user accounts:
 
@@ -564,7 +564,7 @@ Furthermore, the **SERVICE Accounts** group has **GenericWrite** privileges over
 - `winrm_svc`
 - `ldap_svc`
 
-<img src="assets/HTB/Fluffy/image4.png" alt="Error Loading Image" />
+<img src="/assets/HTB/Fluffy/image4.png" alt="Error Loading Image" />
 
 ### Generic All
 

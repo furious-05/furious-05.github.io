@@ -3,9 +3,9 @@ title: TheFrizz
 date: 2025-08-23
 categories: [HTB Walkthrough]
 tags: Windows ActiveDirectory  SSH RunasCs GPOAbuse PasswordSpray Web 
-img_path: assets/HTB/TheFrizz/image.png
+img_path: /assets/HTB/TheFrizz/image.png
 image:
-  path: assets/HTB/TheFrizz/image.png
+  path: /assets/HTB/TheFrizz/image.png
 ---
 
 
@@ -22,7 +22,7 @@ image:
     <td>Medium</td>
     <td>Windows</td>
     <td>16 Mar 2025</td>
-    <td><img src="assets/HTB/TheFrizz/image1.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/TheFrizz/image1.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
@@ -83,11 +83,11 @@ Now, we need to update the /etc/hosts file.
 
 Here, we can see a web server running on port 80.
 
-<img src="assets/HTB/TheFrizz/image2.png" alt="error loading image"> 
+<img src="/assets/HTB/TheFrizz/image2.png" alt="error loading image"> 
 
 Under the staff login page, we can see the version of the website running.
 
-<img src="assets/HTB/TheFrizz/image3.png" alt="error loading image"> 
+<img src="/assets/HTB/TheFrizz/image3.png" alt="error loading image"> 
 
 Powered by Gibbon v25.0.00 | © Ross Parker 2010-2025
 
@@ -103,7 +103,7 @@ http://frizzdc.frizz.htb/Gibbon-LMS/?q=gibbon.sql
 [CVE-2023-34598](https://github.com/maddsec/CVE-2023-34598).
 
 
-<img src="assets/HTB/TheFrizz/image4.png" alt="error loading image"> 
+<img src="/assets/HTB/TheFrizz/image4.png" alt="error loading image"> 
 
 Since the LFI vulnerability is limited, we explored further and found a relevant security advisory:  
 
@@ -144,7 +144,7 @@ frizz\w.webservice
 
 Tried to get a shell using [RevShells](https://www.revshells.com/).
 
-<img src="assets/HTB/TheFrizz/image5.png" alt="error loading image"> 
+<img src="/assets/HTB/TheFrizz/image5.png" alt="error loading image"> 
 
 Now, we have to set up Netcat.  
 
@@ -556,16 +556,16 @@ INFO: Compressing output into 20250529202114_bloodhound.zip
 
 Here we can see a clear picture of the Active Directory (AD).
 
-<img src="assets/HTB/TheFrizz/image6.png" alt="error loading image"> 
+<img src="/assets/HTB/TheFrizz/image6.png" alt="error loading image"> 
 
 
 Here, we can see the outbound object control of the user **M.schoolbus**.
 
-<img src="assets/HTB/TheFrizz/image8.png" alt="error loading image"> 
+<img src="/assets/HTB/TheFrizz/image8.png" alt="error loading image"> 
 
 We have access to **M.schoolbus**, and we can see that this user is part of the **Group Policy Creator Owners**. So, we will try to abuse **GPO**.
 
-<img src="assets/HTB/TheFrizz/image7.png" alt="error loading image"> 
+<img src="/assets/HTB/TheFrizz/image7.png" alt="error loading image"> 
 
 Back to the **ssh** connection and proceed with the following steps:  
 

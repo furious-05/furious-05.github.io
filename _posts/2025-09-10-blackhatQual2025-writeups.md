@@ -3,9 +3,9 @@ title: Blackhat MEA 2025 Qualification
 date: 2025-09-07
 categories: [CTF Walkthrough]
 tags: Web CTF
-img_path: assets/CTF/BlackhatQual2025/image.png
+img_path: /assets/CTF/BlackhatQual2025/image.png
 image:
-  path: assets/CTF/BlackhatQual2025/image.png
+  path: /assets/CTF/BlackhatQual2025/image.png
 ---
 
 This blog covers all web application challenges from the **BlackHat 2025 Qualification Round**. Each challenge contains a description, the vulnerable code, and steps to exploit it. It serves as a complete walkthrough of the web challenges in this competition.
@@ -108,7 +108,7 @@ docker-compose up
 
 Now the application should be running:
 
-<img src="assets/CTF/BlackhatQual2025/image1.png" alt="Application running"/>
+<img src="/assets/CTF/BlackhatQual2025/image1.png" alt="Application running"/>
 
 
 ### Vulnerability Explanation
@@ -164,7 +164,7 @@ if check == '"Authorized"':
 
 * Intercept a request to `/user`, change it to `POST` and set `Content-Type` to `application/json`.
 
-<img src="assets/CTF/BlackhatQual2025/image2.png" alt="Creating user"/>
+<img src="/assets/CTF/BlackhatQual2025/image2.png" alt="Creating user"/>
 
 * After this request, the session is marked as admin.
 
@@ -175,7 +175,7 @@ if check == '"Authorized"':
 * Flask checks only `session['is_admin']` for `/admin`.
 * By opening the request in the browser and changing `/user` → `/admin`, you can access the admin route and retrieve the flag:
 
-<img src="assets/CTF/BlackhatQual2025/image3.png" alt="Access admin"/>
+<img src="/assets/CTF/BlackhatQual2025/image3.png" alt="Access admin"/>
 
 
 

@@ -3,9 +3,9 @@ title: Planning
 date: 2025-09-13
 categories: [HTB Walkthrough]
 tags: Web Linux CVE SSH 
-img_path: assets/HTB/Planning/image1.png
+img_path: /assets/HTB/Planning/image1.png
 image:
-  path: assets/HTB/Planning/image1.png
+  path: /assets/HTB/Planning/image1.png
 ---
 
 <table style="width:100%; table-layout:fixed; text-align:center;">
@@ -21,7 +21,7 @@ image:
     <td>Easy</td>
     <td>Linux</td>
     <td>11 May 2025</td>
-    <td><img src="assets/HTB/Planning/logo.png" alt="Logo" width="80"></td>
+    <td><img src="/assets/HTB/Planning/logo.png" alt="Logo" width="80"></td>
   </tr>
 </table>
 
@@ -92,7 +92,7 @@ The target web server is running at:
 http://planning.htb/
 ```
 
-<img src="assets/HTB/Planning/image2.png" alt="Error loading image"/>
+<img src="/assets/HTB/Planning/image2.png" alt="Error loading image"/>
 
 At first glance, there is nothing interesting — just a site providing online education courses.
 
@@ -143,7 +143,7 @@ Grafana is an open-source observability and data visualization platform. It conn
 http://grafana.planning.htb/
 ```
 
-<img src="assets/HTB/Planning/image3.png" alt="Error loading image"/>
+<img src="/assets/HTB/Planning/image3.png" alt="Error loading image"/>
 
 Use the following credentials to log in:
 
@@ -154,7 +154,7 @@ Use the following credentials to log in:
 http://grafana.planning.htb/?orgId=1
 ```
 
-<img src="assets/HTB/Planning/image4.png" alt="Error loading image"/>
+<img src="/assets/HTB/Planning/image4.png" alt="Error loading image"/>
 
 ### CVE-2024-9264
 
@@ -372,7 +372,7 @@ enzo@10.10.11.68's password:
 Accessing http://127.0.0.1:8000/ in the browser prompts for credentials.
 
 
-<img src="assets/HTB/Planning/image5.png" alt="Error loading image"/>
+<img src="/assets/HTB/Planning/image5.png" alt="Error loading image"/>
 
 ### Cron Configuration
 
@@ -399,7 +399,7 @@ Login to the application
 - **Username:** `root`
 - **Password:** `P4ssw0rdS0pRi0T3c`
 
-<img src="assets/HTB/Planning/image6.png" alt="Error loading image"/>
+<img src="/assets/HTB/Planning/image6.png" alt="Error loading image"/>
 
 
 ### Create reverse shell script and schedule job
@@ -431,10 +431,10 @@ Create a new cron job that runs the script
 bash -c "/tmp/shell.sh"
 ```
 
-<img src="assets/HTB/Planning/image7.png" alt="Error loading image"/>
+<img src="/assets/HTB/Planning/image7.png" alt="Error loading image"/>
 
 
-<img src="assets/HTB/Planning/image8.png" alt="Error loading image"/>
+<img src="/assets/HTB/Planning/image8.png" alt="Error loading image"/>
 
 We set up a listener, clicked Run now, and obtained a root shell.
 

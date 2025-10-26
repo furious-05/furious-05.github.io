@@ -378,7 +378,7 @@ here we have a webserver running on port 80
 http://certificate.htb/
 ```
 
-<img src="assets/HTB/Certificate/image2.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image2.png" alt="Error loading image">
 
 The website appears to be an **e-learning platform** offering online courses, certifications, and educational resources. It provides features such as video classes, e-books, assignments, and recognized certificates to help users enhance their skills.
 
@@ -388,7 +388,7 @@ First, we register on the platform:
 http://certificate.htb/register.php
 ```
 
-<img src="assets/HTB/Certificate/image3.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image3.png" alt="Error loading image">
 
 Then, log in to the application:
 
@@ -396,7 +396,7 @@ Then, log in to the application:
 http://certificate.htb/login.php
 ```
 
-<img src="assets/HTB/Certificate/image4.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image4.png" alt="Error loading image">
 
 Next, we explore the available courses:
 
@@ -406,7 +406,7 @@ http://certificate.htb/courses.php
 
 Here, we can view and enroll in different courses.
 
-<img src="assets/HTB/Certificate/image4.1.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image4.1.png" alt="Error loading image">
 
 To view course details and enroll:
 
@@ -416,7 +416,7 @@ http://certificate.htb/course-details.php?id=1
 
 Click **Enroll** to join the course.
 
-<img src="assets/HTB/Certificate/image4.2.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image4.2.png" alt="Error loading image">
 
 After enrolling, scrolling down reveals different sessions and a submission section.
 
@@ -424,7 +424,7 @@ After enrolling, scrolling down reveals different sessions and a submission sect
 http://certificate.htb/course-details.php?id=1&action=enroll
 ```
 
-<img src="assets/HTB/Certificate/image4.3.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image4.3.png" alt="Error loading image">
 
 Clicking on **Submission** leads to a file upload page that accepts only specific file types:
 
@@ -434,11 +434,9 @@ We accept only the following file types: .pdf, .docx, .pptx, .xlsx
 http://certificate.htb/upload.php?s_id=26
 ```
 
-<img src="assets/HTB/Certificate/image5.png" alt="Error loading image">
-
 Here, uploading a normal PDF shows **"File uploaded successfully"** and provides a link to view the submitted assignment:
 
-<img src="assets/HTB/Certificate/image5.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image5.png" alt="Error loading image">
 
 
 Here after trying different type of file upload finally i found a upload a shell
@@ -519,7 +517,7 @@ nc -lvnp 4444
 After submitting the .zip file, click on the HERE link.
 
 
-<img src="assets/HTB/Certificate/image6.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image6.png" alt="Error loading image">
 
 A URL will look like:
 
@@ -795,7 +793,7 @@ But when a user provides valid credentials the file explorer freezes and then cr
 
 After opening the capture in Wireshark we found SMB packets and several Kerberos packets (AS-REQ, AS-REP and TGS-REP).
 
-<img src="assets/HTB/Certificate/image11.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image11.png" alt="Error loading image">
 
 The capture contains Kerberos pre-authentication data that can be extracted for offline password cracking. To parse Kerberos packets from the .pcap and generate crackable hashes we used:
 
@@ -894,7 +892,7 @@ Viewing BloodHound shows `lion.sk` is a member of three groups — the interesti
 
 ### Enumeration
 
-<img src="assets/HTB/Certificate/image10.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image10.png" alt="Error loading image">
 
 
 We ran `certipy find` as `lion.sk` and discovered a user-enrollable template (`Delegated-CRA`) with the **Certificate Request Agent** EKU, flagged as **ESC3** — indicating an ADCS ESC3 attack path is possible.
@@ -996,7 +994,7 @@ For ESC3 we `require` `2 certificate templates` with the following configuration
 After reviewing users in BloodHound, none were immediately interesting, but we identified **ryan** as a member of **Domain Storage Managers**. We will target `ryan` and proceed with the ESC3 (Certificate Request Agent EKU) attack path.
 
 
-<img src="assets/HTB/Certificate/image12.png" alt="Error loading image">
+<img src="/assets/HTB/Certificate/image12.png" alt="Error loading image">
 
 ### ESC3 Abuse
 

